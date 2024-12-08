@@ -1,8 +1,7 @@
 # Gym-Retention-Prediction 
 
-# Customer Churn Prediction for FitLife Gym
 
-## Project Overview
+## Project Overview: Customer Churn Prediction for FitLife Gym
 
 This project aims to predict customer churn for FitLife Gym, a growing chain of fitness centers. By analyzing historical membership data, the project seeks to identify patterns and predict which members are likely to leave. The objective is to help FitLife Gym reduce churn rates, increase customer lifetime value, and enhance member satisfaction through personalized engagement strategies.
 
