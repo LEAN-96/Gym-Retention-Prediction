@@ -95,7 +95,7 @@ To run this project locally on your machine:
     ```bash
     jupyter notebook
     ```
-    Open the notebook (`Logistic_Regression.ipynb`) in your browser through the Jupyter interface.
+    Open the notebook (`gym_retention_prediction.ipynb`) in your browser through the Jupyter interface.
 
 ### Running Online via MyBinder
 
@@ -106,7 +106,7 @@ Click the MyBinder button below to launch the notebook in an interactive environ
 [![Binder](https://mybinder.org/badge_logo.svg )](https://mybinder.org/v2/gh/LEAN-96/Gym-Retention-Prediction.git/HEAD?labpath=notebooks )
 
 Once MyBinder loads:
-1. Navigate to your notebook (`Logistic_Regression.ipynb`) in the file browser on the left.
+1. Navigate to your notebook (`gym_retention_prediction.ipynb`) in the file browser on the left.
 2. Click on the notebook file to open it.
 3. Run all cells by selecting "Run All" from the "Cell" menu or pressing `Shift + Enter` for individual cells.
 
