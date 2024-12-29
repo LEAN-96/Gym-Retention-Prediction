@@ -48,23 +48,25 @@ Integrate the final model into production, enabling practical applications and e
 
 ## Expected Results
 
-| Algorithm | Data Balancing | Precision (1) | Recall (1) | F1-Score (1) | Train Acc | Test Acc | CV Acc | Δ (Train-Test) | Δ (Train-CV) | Overfitting Risk |
-|-----------|---------------|---------------|-------------|--------------|-----------|-----------|---------|----------------|---------------|-----------------|
-| LogReg | None | 0.81 | 0.81 | 0.81 | 0.89 | 0.90 | 0.91 | -0.01 | -0.02 | Low |
-| LogReg | ROS | 0.85 | 0.90 | 0.87 | 0.88 | 0.87 | 0.86 | 0.01 | 0.02 | Low |
-| LogReg | SMOTE | 0.89 | 0.94 | 0.91 | 0.91 | 0.91 | 0.90 | 0.00 | 0.01 | Low |
-| SVM | None | 0.82 | 0.81 | 0.81 | 0.89 | 0.90 | 0.90 | -0.01 | -0.01 | Low |
-| SVM | ROS | 0.84 | 0.91 | 0.87 | 0.89 | 0.87 | 0.85 | 0.02 | 0.04 | Low |
-| SVM | SMOTE | 0.88 | 0.93 | 0.90 | 0.92 | 0.90 | 0.89 | 0.02 | 0.03 | Low |
-| XGBoost | None | 0.77 | 0.76 | 0.77 | 0.99 | 0.88 | 0.88 | 0.11 | 0.11 | High |
-| XGBoost | ROS | 0.90 | 0.98 | 0.94 | 0.99 | 0.93 | 0.87 | 0.06 | 0.12 | High |
-| XGBoost | SMOTE | 0.90 | 0.93 | 0.91 | 0.99 | 0.91 | 0.88 | 0.08 | 0.11 | High |
-| DecTree | None | 0.70 | 0.75 | 0.72 | 1.00 | 0.85 | 0.84 | 0.15 | 0.16 | Very High |
-| DecTree | ROS | 0.89 | 0.99 | 0.94 | 1.00 | 0.93 | 0.84 | 0.07 | 0.16 | Very High |
-| DecTree | SMOTE | 0.86 | 0.86 | 0.86 | 1.00 | 0.86 | 0.85 | 0.14 | 0.15 | Very High |
-| RandFor | None | 0.82 | 0.78 | 0.80 | 1.00 | 0.89 | 0.88 | 0.11 | 0.12 | High |
-| RandFor | ROS | 0.90 | 0.98 | 0.94 | 1.00 | 0.94 | 0.88 | 0.06 | 0.12 | High |
-| RandFor | SMOTE | 0.89 | 0.91 | 0.90 | 1.00 | 0.90 | 0.89 | 0.10 | 0.11 | High |
+
+| Algorithm | Data Balancing | Precision (1) | Recall (1) | F1-Score (1) | Train Acc | Test Acc | CV Acc | Δ (Train-Test) | Overfitting Risk |
+|-----------|---------------|---------------|-------------|--------------|-----------|-----------|---------|----------------|-----------------|
+| LogReg | None | 0.81 | 0.81 | 0.81 | 0.89 | 0.90 | 0.87 | -0.01 | Low |
+| LogReg | ROS | 0.85 | 0.90 | 0.87 | 0.88 | 0.87 | 0.86 | 0.01 | Low |
+| LogReg | SMOTE | 0.89 | 0.94 | 0.91 | 0.91 | 0.91 | 0.89 | 0.00 | Low |
+| SVM | None | 0.82 | 0.81 | 0.81 | 0.89 | 0.90 | 0.87 | -0.01 | Low |
+| SVM | ROS | 0.84 | 0.91 | 0.87 | 0.89 | 0.87 | 0.87 | 0.02 | Low |
+| SVM | SMOTE | 0.88 | 0.93 | 0.90 | 0.92 | 0.90 | 0.90 | 0.02 | Low |
+| XGBoost | None | 0.77 | 0.76 | 0.77 | 0.99 | 0.88 | 0.97 | 0.11 | High |
+| XGBoost | ROS | 0.90 | 0.98 | 0.94 | 0.99 | 0.93 | 0.97 | 0.06 | High |
+| XGBoost | SMOTE | 0.90 | 0.93 | 0.91 | 0.99 | 0.91 | 0.97 | 0.08 | High |
+| DecTree | None | 0.70 | 0.75 | 0.72 | 1.00 | 0.85 | 0.98 | 0.15 | Very High |
+| DecTree | ROS | 0.89 | 0.99 | 0.94 | 1.00 | 0.93 | 0.98 | 0.07 | Very High |
+| DecTree | SMOTE | 0.86 | 0.86 | 0.86 | 1.00 | 0.86 | 0.98 | 0.14 | Very High |
+| RandFor | None | 0.82 | 0.78 | 0.80 | 1.00 | 0.89 | 0.98 | 0.11 | High |
+| RandFor | ROS | 0.90 | 0.98 | 0.94 | 1.00 | 0.94 | 0.98 | 0.06 | High |
+| RandFor | SMOTE | 0.89 | 0.91 | 0.90 | 1.00 | 0.90 | 0.98 | 0.10 | High |
+
 
 
 
@@ -76,7 +78,7 @@ Integrate the final model into production, enabling practical applications and e
 
 ### Best Overall Models
 - SMOTE-balanced Logistic Regression
-  - Most stable performance (Train: 0.91, Test: 0.91, CV: 0.90)
+  - Most stable performance (Train: 0.91, Test: 0.91, CV: 0.91)
   - Excellent balance of precision/recall for both classes
   - Minimal overfitting (Δ Train-Test: 0.00)
 
@@ -111,7 +113,6 @@ Integrate the final model into production, enabling practical applications and e
   - More stable across different data balancing techniques
   - Smaller train-test performance gaps
   - More consistent cross-validation scores
-
 
 
 ## Requirements
