@@ -1,0 +1,17 @@
+name: gym-retention-environment
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - imbalanced-learn
+  - XGBOOST
+  - statsmodel==0.14.2
+  - pip
+  - pip:
+      - nbgitpuller
+      - sphinx-gallery
