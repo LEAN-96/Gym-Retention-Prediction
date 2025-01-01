@@ -46,16 +46,73 @@ Assess the model’s effectiveness using relevant metrics and ensure it meets th
 ### 6. Deployment
 Integrate the final model into production, enabling practical applications and ensuring continuous performance monitoring.
 
-## Results
+## Expected Results
 
-The key findings and results of the project are summarized below:
 
-- **Logistic Regression**: Achieved an accuracy of XX% with precision and recall scores of YY% and ZZ%, respectively.
-- **Decision Tree**: Achieved an accuracy of XX% with precision and recall scores of YY% and ZZ%, respectively.
-- **Random Forest**: Achieved an accuracy of XX% with precision and recall scores of YY% and ZZ%, respectively.
-- **SVM**: Achieved an accuracy of XX% with precision and recall scores of YY% and ZZ%, respectively.
-- **XGBoost**: Achieved an accuracy of XX% with precision and recall scores of YY% and ZZ%, respectively.
+| Algorithm | Data Balancing | Precision (1) | Recall (1) | F1-Score (1) | Train Acc | Test Acc | CV Acc | Δ (Train-Test) | Overfitting Risk |
+|-----------|---------------|---------------|-------------|--------------|-----------|-----------|---------|----------------|-----------------|
+| LogReg | None | 0.81 | 0.81 | 0.81 | 0.89 | 0.90 | 0.89 | -0.01 | Low |
+| LogReg | ROS | 0.85 | 0.90 | 0.87 | 0.88 | 0.87 | 0.88 | 0.01 | Low |
+| LogReg | SMOTE | 0.89 | 0.94 | 0.91 | 0.91 | 0.91 | 0.91 | 0.00 | Low |
+| SVM | None | 0.82 | 0.81 | 0.81 | 0.89 | 0.90 | 0.88 | -0.01 | Low |
+| SVM | ROS | 0.84 | 0.91 | 0.87 | 0.89 | 0.87 | 0.88 | 0.02 | Low |
+| SVM | SMOTE | 0.88 | 0.93 | 0.90 | 0.92 | 0.90 | 0.91 | 0.02 | Low |
+| XGBoost | None | 0.77 | 0.76 | 0.77 | 0.99 | 0.88 | 0.86 | 0.11 | High |
+| XGBoost | ROS | 0.90 | 0.98 | 0.94 | 0.99 | 0.93 | 0.92 | 0.06 | High |
+| XGBoost | SMOTE | 0.90 | 0.93 | 0.91 | 0.99 | 0.91 | 0.91 | 0.08 | High |
+| DecTree | None | 0.70 | 0.75 | 0.72 | 1.00 | 0.85 | 0.83 | 0.15 | Very High |
+| DecTree | ROS | 0.89 | 0.99 | 0.94 | 1.00 | 0.93 | 0.90 | 0.07 | Very High |
+| DecTree | SMOTE | 0.86 | 0.86 | 0.86 | 1.00 | 0.86 | 0.87 | 0.14 | Very High |
+| RandFor | None | 0.82 | 0.78 | 0.80 | 1.00 | 0.89 | 0.83 | 0.11 | High |
+| RandFor | ROS | 0.90 | 0.98 | 0.94 | 1.00 | 0.94 | 0.93 | 0.06 | High |
+| RandFor | SMOTE | 0.89 | 0.91 | 0.90 | 1.00 | 0.90 | 0.87 | 0.10 | High |
 
+
+
+
+---
+
+## Key Findings
+
+## Model Performance Summary
+
+### Best Overall Models
+- SMOTE-balanced Logistic Regression
+  - Most stable performance (Train: 0.91, Test: 0.91, CV: 0.91)
+  - Excellent balance of precision/recall for both classes
+  - Minimal overfitting (Δ Train-Test: 0.00)
+
+- ROS-balanced Random Forest
+  - Highest test accuracy (0.94)
+  - Strong class 1 metrics (Precision: 0.90, Recall: 0.98)
+  - Moderate overfitting risk (Δ Train-Test: 0.06)
+
+### Impact of Balancing
+- **SMOTE Benefits**:
+  - Improved minority class recall (+0.13 on average)
+  - More stable cross-validation scores
+  - Reduced overfitting in tree-based models
+
+- **ROS Effects**:
+  - Highest overall performance gains
+  - Slightly more variance in predictions
+  - Better recall but lower precision
+
+### Overfitting Analysis
+- **High Risk**: Decision Trees (Δ Train-Test > 0.14)
+- **Moderate Risk**: XGBoost, Random Forest (Δ Train-Test: 0.06-0.11)
+- **Low Risk**: Logistic Regression, SVM (Δ Train-Test < 0.02)
+
+### Model-Specific Insights
+- Tree-based models (Decision Tree, Random Forest, XGBoost)
+  - Perfect training scores (1.00) indicate overfitting
+  - Larger train-test accuracy gaps
+  - Better performance with balanced datasets
+
+- Linear models (Logistic Regression, SVM)
+  - More stable across different data balancing techniques
+  - Smaller train-test performance gaps
+  - More consistent cross-validation scores
 
 
 ## Requirements
