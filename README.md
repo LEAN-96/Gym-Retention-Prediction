@@ -46,6 +46,8 @@ Assess the model’s effectiveness using relevant metrics and ensure it meets th
 ### 6. Deployment
 Integrate the final model into production, enabling practical applications and ensuring continuous performance monitoring.
 
+![image](https://github.com/user-attachments/assets/6fb6648e-40b9-4d47-a760-6209888dddb3)
+
 ## Expected Results
 
 
