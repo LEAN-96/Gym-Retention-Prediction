@@ -46,74 +46,35 @@ Assess the model’s effectiveness using relevant metrics and ensure it meets th
 ### 6. Deployment
 Integrate the final model into production, enabling practical applications and ensuring continuous performance monitoring.
 
+![image](https://github.com/user-attachments/assets/6fb6648e-40b9-4d47-a760-6209888dddb3)
+
 ## Expected Results
 
 
-| Algorithm | Data Balancing | Precision (1) | Recall (1) | F1-Score (1) | Train Acc | Test Acc | CV Acc | Δ (Train-Test) | Overfitting Risk |
-|-----------|---------------|---------------|-------------|--------------|-----------|-----------|---------|----------------|-----------------|
-| LogReg | None | 0.81 | 0.81 | 0.81 | 0.89 | 0.90 | 0.89 | -0.01 | Low |
-| LogReg | ROS | 0.85 | 0.90 | 0.87 | 0.88 | 0.87 | 0.88 | 0.01 | Low |
-| LogReg | SMOTE | 0.89 | 0.94 | 0.91 | 0.91 | 0.91 | 0.91 | 0.00 | Low |
-| SVM | None | 0.82 | 0.81 | 0.81 | 0.89 | 0.90 | 0.88 | -0.01 | Low |
-| SVM | ROS | 0.84 | 0.91 | 0.87 | 0.89 | 0.87 | 0.88 | 0.02 | Low |
-| SVM | SMOTE | 0.88 | 0.93 | 0.90 | 0.92 | 0.90 | 0.91 | 0.02 | Low |
-| XGBoost | None | 0.77 | 0.76 | 0.77 | 0.99 | 0.88 | 0.86 | 0.11 | High |
-| XGBoost | ROS | 0.90 | 0.98 | 0.94 | 0.99 | 0.93 | 0.92 | 0.06 | High |
-| XGBoost | SMOTE | 0.90 | 0.93 | 0.91 | 0.99 | 0.91 | 0.91 | 0.08 | High |
-| DecTree | None | 0.70 | 0.75 | 0.72 | 1.00 | 0.85 | 0.83 | 0.15 | Very High |
-| DecTree | ROS | 0.89 | 0.99 | 0.94 | 1.00 | 0.93 | 0.90 | 0.07 | Very High |
-| DecTree | SMOTE | 0.86 | 0.86 | 0.86 | 1.00 | 0.86 | 0.87 | 0.14 | Very High |
-| RandFor | None | 0.82 | 0.78 | 0.80 | 1.00 | 0.89 | 0.83 | 0.11 | High |
-| RandFor | ROS | 0.90 | 0.98 | 0.94 | 1.00 | 0.94 | 0.93 | 0.06 | High |
-| RandFor | SMOTE | 0.89 | 0.91 | 0.90 | 1.00 | 0.90 | 0.87 | 0.10 | High |
+### 4.5 Comparison of Algorithm Performance Across Data Balancing Techniques
 
-
-
+| Algorithm          | Data Balancing | Precision (1) | Recall (1) | F1-Score (1) | Train Acc | Test Acc | Δ (Train-Test) | Overfitting Risk |
+|--------------------|----------------|---------------|------------|--------------|-----------|----------|----------------|------------------|
+| Logistic Regression | ROS            | 69%           | 91%        | 78%          | 88%       | 86%      | 2%             | Low              |
+| Decision Trees      | ROS            | 67%           | 91%        | 77%          | 88%       | 85%      | 3%             | Low             |
+| Random Forest       | ROS            | 75%           | 86%        | 80%          | 96%       | 89%      | 7%             | Moderate         |
+| XGBoost             | ROS            | 75%           | 81%        | 78%          | 99%       | 88%      | 11%            | High             |
 
 ---
 
-## Key Findings
+#### Key Findings
 
-## Model Performance Summary
+1. **Logistic Regression**: Logistic Regression achieved a test accuracy of 86%, with high recall (91%) for identifying churners but lower precision (69%), indicating a tendency to misclassify non-churners as churners. It demonstrated good generalization with minimal overfitting and identified `Lifetime` and `Avg_class_frequency_current_month` as the most influential features.
 
-### Best Overall Models
-- SMOTE-balanced Logistic Regression
-  - Most stable performance (Train: 0.91, Test: 0.91, CV: 0.91)
-  - Excellent balance of precision/recall for both classes
-  - Minimal overfitting (Δ Train-Test: 0.00)
+2. **Decision Trees**: Decision Trees achieved a test accuracy of 85%, with strong recall (91%) for churners but reduced precision (67%). The model showed mild overfitting, with `Lifetime`, `Month_to_end_contract`, and `Avg_class_frequency_current_month` emerging as the key predictors of churn.
 
-- ROS-balanced Random Forest
-  - Highest test accuracy (0.94)
-  - Strong class 1 metrics (Precision: 0.90, Recall: 0.98)
-  - Moderate overfitting risk (Δ Train-Test: 0.06)
+3. **Random Forest**: Random Forest outperformed Logistic Regression and Decision Trees with a test accuracy of 89%. It balanced precision (75%) and recall (86%) for churners, demonstrating good generalization with moderate overfitting. Feature importance analysis reinforced the dominance of `Lifetime`, followed by `Avg_class_frequency_current_month` and `Month_to_end_contract`.
 
-### Impact of Balancing
-- **SMOTE Benefits**:
-  - Improved minority class recall (+0.13 on average)
-  - More stable cross-validation scores
-  - Reduced overfitting in tree-based models
+4. **XGBoost**: XGBoost achieved the highest training accuracy (99%) but exhibited overfitting, with test accuracy dropping to 88%. While recall for churners remained strong at 81%, precision was 75%, similar to Random Forest. The model identified `Lifetime` as the most critical predictor, followed by `Month_to_end_contract`.
 
-- **ROS Effects**:
-  - Highest overall performance gains
-  - Slightly more variance in predictions
-  - Better recall but lower precision
+#### Conclusion
 
-### Overfitting Analysis
-- **High Risk**: Decision Trees (Δ Train-Test > 0.14)
-- **Moderate Risk**: XGBoost, Random Forest (Δ Train-Test: 0.06-0.11)
-- **Low Risk**: Logistic Regression, SVM (Δ Train-Test < 0.02)
-
-### Model-Specific Insights
-- Tree-based models (Decision Tree, Random Forest, XGBoost)
-  - Perfect training scores (1.00) indicate overfitting
-  - Larger train-test accuracy gaps
-  - Better performance with balanced datasets
-
-- Linear models (Logistic Regression, SVM)
-  - More stable across different data balancing techniques
-  - Smaller train-test performance gaps
-  - More consistent cross-validation scores
-
+Random Forest emerged as the best-performing model due to its balance between accuracy, precision, recall, and generalization capability. While XGBoost delivered competitive performance, its higher overfitting risk limits its reliability without further tuning. Logistic Regression and Decision Trees provided interpretable results but were less precise in predicting churners compared to ensemble methods. Overall, Random Forest is recommended for predicting customer churn, supported by actionable insights from feature importance analysis.
 
 ## Requirements
 
