@@ -11,6 +11,6 @@ dependencies:
   - imbalanced-learn
   - xgboost
   - statsmodels=0.14.2
-  - pip
-    - nbgitpuller
-    - sphinx-gallery
+  - pip:
+      - nbgitpuller
+      - sphinx-gallery
