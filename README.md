@@ -51,7 +51,7 @@ Integrate the final model into production, enabling practical applications and e
 ## Expected Results
 
 
-### 4.5 Comparison of Algorithm Performance Across Data Balancing Techniques
+### 4.5 Comparison of Algorithm Performance
 
 | Algorithm          | Data Balancing | Precision (1) | Recall (1) | F1-Score (1) | Train Acc | Test Acc | Δ (Train-Test) | Overfitting Risk |
 |--------------------|----------------|---------------|------------|--------------|-----------|----------|----------------|------------------|
