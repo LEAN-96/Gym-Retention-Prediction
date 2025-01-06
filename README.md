@@ -137,8 +137,7 @@ By using MyBinder, you can explore and execute all parts of this notebook withou
 
 ## Conclusion
 
-This project successfully predicted customer churn for FitLife Gym using various machine learning algorithms. The results can help the gym proactively address member concerns, reduce churn rates, and enhance customer satisfaction. Future work could include exploring additional features, testing other algorithms, and deploying the model in a real-world environment to continuously monitor and improve its performance.
-
+This project successfully predicted customer churn for FitLife Gym using various machine learning algorithms. The results can help the gym proactively address member concerns, reduce churn rates, and enhance customer satisfaction. Deployment, a critical phase of the CRISP-DM lifecycle, exceeded the scope of this project but remains essential for production environments. Future research should explore modeling without data balancing to evaluate the impact of imbalanced datasets on performance. Additionally, applying data balancing techniques such as SMOTE (Synthetic Minority Oversampling Technique) and comparing results with no balancing will provide deeper insights into their effectiveness. Parameter optimization using Grid Search should also be conducted to fine-tune hyperparameters and reduce overfitting (e.g. XGBoost). Incorporating pipelines for efficient model training and evaluation will streamline workflows and reduce redundancy. Finally, expanding the scope to include advanced algorithms like deep learning will enable a comparison of traditional machine learning models with neural network-based approaches.
 
 
 
